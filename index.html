@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sell Your House Fast | Get a Cash Offer Today</title>
+    <style>
+        :root {
+            --primary: #2E5CB8;
+            --primary-dark: #1A4088;
+            --secondary: #28A745;
+            --secondary-dark: #1E7E34;
+            --text: #333333;
+            --light-bg: #F8F9FA;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+        }
+
+        .header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://i.ibb.co/x8YV9jJG/Palatka.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 40px 20px 80px;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding-top: 40px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .benefits {
+            padding: 60px 20px;
+            background: var(--light-bg);
+            text-align: center;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        .benefit-item {
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .benefit-item i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .form-section {
+            padding: 0 20px;
+            width: 100%;
+            max-width: 450px;
+            margin-left: 40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-form {
+            background: rgba(245, 245, 245, 0.92);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            backdrop-filter: blur(5px);
+        }
+
+        .contact-form h2 {
+            color: var(--text);
+            margin-bottom: 15px;
+        }
+
+        .contact-form p {
+            color: var(--text);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--text);
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .submit-btn {
+            background: var(--secondary);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: var(--secondary-dark);
+        }
+
+        .footer {
+            background: var(--primary-dark);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        .quick-points {
+            flex: 1;
+            padding: 40px;
+            color: white;
+            text-align: left;
+            margin-left: 40px;
+        }
+
+        .quick-points h2 {
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            color: white;
+            font-weight: 700;
+        }
+
+        .quick-points-list {
+            list-style: none;
+        }
+
+        .quick-points-list li {
+            margin-bottom: 25px;
+            padding-left: 40px;
+            position: relative;
+            font-size: 1.4rem;
+            font-weight: 500;
+        }
+
+        .quick-points-list li:before {
+            content: "✓";
+            color: var(--secondary);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            font-size: 1.6rem;
+        }
+
+        .locally-owned {
+            color: white;
+            font-size: 1.4rem;
+            margin-top: 30px;
+            padding-left: 40px;
+            font-weight: 500;
+            position: relative;
+        }
+
+        .locally-owned:before {
+            content: "✓";
+            color: var(--secondary);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            font-size: 1.6rem;
+        }
+
+        @media (max-width: 1024px) {
+            .hero-content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .form-section {
+                margin: 20px auto;
+            }
+
+            .quick-points {
+                margin: 20px auto;
+                padding: 20px;
+                text-align: center;
+            }
+
+            .quick-points-list {
+                display: inline-block;
+                text-align: left;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .header p {
+                font-size: 1rem;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <h1>Sell Fast, Get Paid Now – Fair Cash Offers, No Hassle</h1>
+        <p>Get a fair cash offer within 24 hours</p>
+        
+        <div class="hero-content">
+            <section class="form-section">
+                <div class="contact-form">
+                    <h2>Get Your Cash Offer Now</h2>
+                    <p style="margin-bottom: 20px;">Fill out this simple form and we'll contact you within 24 hours.</p>
+                    <form id="contactForm" onsubmit="handleSubmit(event)">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Property Address</label>
+                            <input type="text" id="address" name="address" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Additional Information (Optional)</label>
+                            <textarea id="message" name="message" rows="4"></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Get My Cash Offer</button>
+                    </form>
+                </div>
+            </section>
+
+            <div class="quick-points">
+                <h2>We Offer You:</h2>
+                <ul class="quick-points-list">
+                    <li>Fair Cash Offer Within 24 Hours</li>
+                    <li>No Repairs or Cleaning Needed</li>
+                    <li>Close in as Fast as 7 Days</li>
+                    <li>Zero Fees or Commissions</li>
+                    <li>No Obligation to Accept</li>
+                    <li>We Handle All Paperwork</li>
+                    <li>Locally Owned and Operated</li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <section class="benefits">
+        <h2>Why Choose Us?</h2>
+        <div class="benefits-grid">
+            <div class="benefit-item">
+                <i class="fas fa-bolt"></i>
+                <h3>Lightning-Fast Cash Offers</h3>
+                <p>We deliver cash offers within 24 hours and can close in as little as 7 days - no endless waiting.</p>
+            </div>
+            <div class="benefit-item">
+                <i class="fas fa-handshake"></i>
+                <h3>Fair Deals You Can Trust</h3>
+                <p>With years of experience and satisfied sellers, we're your reliable partner for a fair deal.</p>
+            </div>
+            <div class="benefit-item">
+                <i class="fas fa-heart"></i>
+                <h3>Solutions for Any Situation</h3>
+                <p>We buy homes in any condition, any situation—foreclosure, inherited properties, or just ready to move on.</p>
+            </div>
+            <div class="benefit-item">
+                <i class="fas fa-smile"></i>
+                <h3>Stress-Free Selling Process</h3>
+                <p>Skip the complicated process—we handle everything, so you don't have to.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2024 Cash Home Buyers. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            // Get form data
+            const formData = {
+                name: document.getElementById('name').value,
+                phone: document.getElementById('phone').value,
+                address: document.getElementById('address').value,
+                message: document.getElementById('message').value
+            };
+
+            // Here you would typically send this data to your server
+            console.log('Form submitted:', formData);
+            
+            // Store form data in localStorage (optional - if you want to display it on thank you page)
+            localStorage.setItem('formData', JSON.stringify(formData));
+            
+            // Redirect to thank you page
+            window.location.href = 'thank_you.html';
+        }
+    </script>
+</body>
+</html> 
