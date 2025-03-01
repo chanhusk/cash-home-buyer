@@ -87,65 +87,165 @@
         }
 
         .form-section {
-            padding: 0 20px;
-            width: 100%;
-            max-width: 450px;
-            margin-left: 40px;
+            padding: 20px;
+            margin-top: -60px;
             position: relative;
             z-index: 2;
         }
 
         .contact-form {
-            background: rgba(245, 245, 245, 0.92);
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.98));
             padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            backdrop-filter: blur(5px);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            backdrop-filter: blur(10px);
+            max-width: 400px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* New gradient border effect */
+        .contact-form::before {
+            content: '';
+            position: absolute;
+            inset: 0; /* This sets top, right, bottom, left all to 0 */
+            padding: 3px; /* This is the border width */
+            background: linear-gradient(45deg, 
+                var(--primary), 
+                var(--secondary), 
+                var(--primary), 
+                var(--secondary));
+            border-radius: 15px;
+            -webkit-mask: 
+                linear-gradient(#fff 0 0) content-box, 
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            background-size: 300% 300%;
+            animation: gradientBorder 4s ease infinite;
+        }
+
+        /* Gradient animation */
+        @keyframes gradientBorder {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
         }
 
         .contact-form h2 {
-            color: var(--text);
-            margin-bottom: 15px;
-        }
-
-        .contact-form p {
-            color: var(--text);
-        }
-
-        .form-group {
+            color: var(--primary);
+            font-size: 1.8rem;
             margin-bottom: 20px;
+            text-align: center;
+            font-weight: 700;
+            text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 1;
         }
 
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            color: var(--text);
-        }
-
-        .form-group input, .form-group textarea {
+        .input-group {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 15px;
             width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
+        }
+
+        .input-group input,
+        .input-group textarea {
+            width: 100%;
+            padding: 12px 15px 12px 40px;
+            border: 2px solid #eee;
+            border-radius: 8px;
             font-size: 16px;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.9);
+            margin-bottom: 0;
         }
 
-        .submit-btn {
-            background: var(--secondary);
-            color: white;
-            padding: 12px 24px;
-            border: none;
-            border-radius: 4px;
-            font-size: 1.1rem;
-            cursor: pointer;
+        .input-group i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--primary);
+            font-size: 16px;
+            z-index: 1;
+        }
+
+        .input-group textarea {
+            padding-top: 35px;
+        }
+
+        .input-group textarea + i {
+            top: 25px;
+            transform: none;
+        }
+
+        .input-group input:focus,
+        .input-group textarea:focus {
+            border-color: transparent;
+            box-shadow: 0 0 0 2px var(--primary);
+            outline: none;
+        }
+
+        .cta-button {
             width: 100%;
-            transition: background-color 0.3s;
+            padding: 15px 25px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: white;
+            background: linear-gradient(45deg, 
+                var(--primary), 
+                var(--secondary), 
+                var(--primary), 
+                var(--secondary));
+            background-size: 300% 300%;
+            animation: gradientBorder 4s ease infinite;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(40, 167, 69, 0.2);
+            position: relative;
+            overflow: hidden;
         }
 
-        .submit-btn:hover {
-            background: var(--secondary-dark);
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(40, 167, 69, 0.3);
+            background-position: 100% 50%;
+        }
+
+        .cta-button:active {
+            transform: translateY(1px);
+        }
+
+        .cta-button:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                120deg,
+                transparent,
+                rgba(255, 255, 255, 0.2),
+                transparent
+            );
+            transition: 0.5s;
+        }
+
+        .cta-button:hover:before {
+            left: 100%;
         }
 
         .footer {
@@ -233,16 +333,49 @@
         }
 
         @media (max-width: 768px) {
-            .header h1 {
+            .header {
+                padding: 20px 15px 60px;
+            }
+
+            .form-section {
+                margin-top: -40px;
+                padding: 15px;
+            }
+
+            .contact-form {
+                margin: 10px;
+                padding: 25px 20px;
+            }
+
+            .contact-form::before {
+                padding: 2px; /* Slightly thinner border on mobile */
+            }
+
+            .hero-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .quick-points {
+                margin-top: 20px;
+                padding: 15px;
+            }
+
+            h1 {
                 font-size: 2rem;
             }
-            
-            .header p {
-                font-size: 1rem;
+
+            h2 {
+                font-size: 1.5rem;
             }
-            
-            .benefits-grid {
-                grid-template-columns: 1fr;
+
+            .contact-form h2 {
+                font-size: 1.6rem;
+            }
+
+            .cta-button {
+                padding: 12px 20px;
+                font-size: 1.1rem;
             }
         }
     </style>
@@ -257,26 +390,31 @@
         <div class="hero-content">
             <section class="form-section">
                 <div class="contact-form">
-                    <h2>Get Your Cash Offer Now</h2>
-                    <p style="margin-bottom: 20px;">Fill out this simple form and we'll contact you within 24 hours.</p>
-                    <form id="contactForm" onsubmit="handleSubmit(event)">
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" name="name" required>
+                    <h2>🏠 Get Your Cash Offer Now!</h2>
+                    <form id="contactForm" class="contact-form" onsubmit="handleSubmit(event)">
+                        <div class="input-group">
+                            <input type="text" name="name" placeholder="Your Name" required>
+                            <i class="fas fa-user"></i>
                         </div>
-                        <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" required>
+                        <div class="input-group">
+                            <input type="tel" name="phone" placeholder="Phone Number" required>
+                            <i class="fas fa-phone"></i>
                         </div>
-                        <div class="form-group">
-                            <label for="address">Property Address</label>
-                            <input type="text" id="address" name="address" required>
+                        <div class="input-group">
+                            <input type="email" name="email" placeholder="Email Address" required>
+                            <i class="fas fa-envelope"></i>
                         </div>
-                        <div class="form-group">
-                            <label for="message">Additional Information (Optional)</label>
-                            <textarea id="message" name="message" rows="4"></textarea>
+                        <div class="input-group">
+                            <input type="text" name="address" placeholder="Property Address" required>
+                            <i class="fas fa-home"></i>
                         </div>
-                        <button type="submit" class="submit-btn">Get My Cash Offer</button>
+                        <div class="input-group">
+                            <textarea name="message" placeholder="Any additional details about your property (optional)"></textarea>
+                            <i class="fas fa-comment"></i>
+                        </div>
+                        <button type="submit" class="cta-button">
+                            Get My Cash Offer Now! 💰
+                        </button>
                     </form>
                 </div>
             </section>
@@ -334,6 +472,7 @@
             const formData = {
                 name: document.getElementById('name').value,
                 phone: document.getElementById('phone').value,
+                email: document.getElementById('email').value,
                 address: document.getElementById('address').value,
                 message: document.getElementById('message').value
             };
